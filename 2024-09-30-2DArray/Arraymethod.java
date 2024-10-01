@@ -7,8 +7,11 @@
 public class ArrayMethods{
     public static void main(String[] args){
       int[][] arr = {{2,3,4},{5,6,7},{8,0,4}};
-
+      
+      
+      System.out.println(arr2DSum(arr) == 39);
       System.out.println(arrToString(arr));
+      
 
       // int [] [] array{
       //{2, 3, 4},
@@ -44,7 +47,7 @@ public class ArrayMethods{
                 combined += arrToString(ary[i]);
 
             }else{
-                combined += arrToString(ary[i] + "}, {}");
+                combined += arrToString(ary[i]) + "}, {}";
 
             }
         }
@@ -57,7 +60,7 @@ public class ArrayMethods{
         int combinedSum = 0;
         for (int i = 0; i < nums.length; i++){
             for (int index = 0; i < nums[i].length; i++){
-                sum = sum + nums[i][index];
+                combinedSum = combinedSum + nums[i][index];
             }
         }
 
