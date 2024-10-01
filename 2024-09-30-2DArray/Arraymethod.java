@@ -59,7 +59,7 @@ public class ArrayMethods{
     public static int arr2DSum(int[][]nums){
         int combinedSum = 0;
         for (int i = 0; i < nums.length; i++){
-            for (int index = 0; i < nums[i].length; i++){
+            for (int index = 0; i < nums[i].length; index++){
                 combinedSum = combinedSum + nums[i][index];
             }
         }
@@ -68,9 +68,15 @@ public class ArrayMethods{
     }
     
     public static int[][] swapRC(int[][]nums){
-        return new int[1][1];
+        
+        int[][] newArray = new int[nums[0].length][nums.length];
+        for (int i = 0; i < nums.length; i++){
+            for (int index = 0; i < nums[i].length; index++){
+                newArray[index][i] = nums[i][index];
+            }
+        
+        }
+            
+        return newArray;
     }
-
-
-
 }
