@@ -53,7 +53,20 @@ public class ArrayMethods{
         return combined;
     }
 
+    public static int arr2DSum(int[][]nums){
+        int combinedSum = 0;
+        for (int i = 0; i < nums.length; i++){
+            for (int index = 0; i < nums[i].length; i++){
+                sum = sum + nums[i][index];
+            }
+        }
 
+        return combinedSum;
+    }
+    
+    public static int[][] swapRC(int[][]nums){
+        return new int[1][1];
+    }
 
 
 
