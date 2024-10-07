@@ -39,6 +39,15 @@ public class ArrayMethods{
       replaceNegative(arr5);
       System.out.print(" replaced: " + arrToString(arr5));
 
+      //2DcopyTest
+      System.out.print("copy: original: " + arrToString(arr));
+      int[][] copied = copy(arr);
+      System.out.print(" copied: " + arrToString(copied)); 
+      System.out.println("Are they same array? " + (arr == copied));
+      
+      arr[0][0] = 999999;
+      System.out.print("replaced arr[0][0] to 9999999: " + arrToString(arr));
+      System.out.println(" copied: " + arrToString(copied)); 
     }
 
     public static String arrToString(int[] ary){
@@ -111,5 +120,21 @@ public class ArrayMethods{
         }
     }
 
+    public static int[] copyInnerArray(int[] nums){
+        int[] newArray = new int[nums.length];
+        for (int i = 0; i < nums.length; i++){
+            newArray[i] = nums[i];
+        }
 
+        return newArray;
+    }
+
+    public static int[][] copy(int[][] nums){
+        int[][] newArray = new int[nums.length][];
+        for (int i = 0; i < nums.length; i++){ 
+            newArray[i] = copyInnerArray(nums[i]);
+        }
+
+        return newArray;
+    }
 }
