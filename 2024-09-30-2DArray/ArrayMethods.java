@@ -7,7 +7,7 @@
 public class ArrayMethods{
     public static void main(String[] args){
 
-      //returns true if 2D Sum matches the sum  
+      //arr2Dsum test : returns true if 2D Sum matches the sum  
       int[][] arr = {{2,3,4},{5,6,7},{8,0,4}};
       System.out.println(arr2DSum(arr) == 39);
 
@@ -20,9 +20,11 @@ public class ArrayMethods{
       int[][] arr4 = {{2,3,4,3},{2,6,5,4},{8,0,4,1}};
       System.out.println(arr2DSum(arr3) == 19);
       
+      //arrToStringTest
       System.out.println(arrToString(arr));
       System.out.println(arrToString(arr4));
 
+      //SwapRC Test
       System.out.print("array swap: are they same array? " + (swapRC(arr) == arr));
       System.out.print(" First Array: " + arrToString(arr));
       System.out.println(" Swapped Array: " + arrToString(swapRC(arr)));
@@ -31,14 +33,11 @@ public class ArrayMethods{
       System.out.print(" First Array: " + arrToString(arr4));
       System.out.println(" Swapped Array: " + arrToString(swapRC(arr4)));
 
-      // int [] [] array{
-      //{2, 3, 4},
-      //{5, 6, 7},
-      //{8, 0, 4};
-      //
-      //String result = arrToString(array)
-      //System.out.println= (arrToString(result))
-
+      //replaceNegativeTest
+      int[][] arr5 = {{2,-2,4,-3},{2,-3,5,4},{-2,0,-9,1}};
+      System.out.print("replaceNegative: original: " + arrToString(arr5));
+      replaceNegative(arr5);
+      System.out.print(" replaced: " + arrToString(arr5));
 
     }
 
@@ -97,4 +96,20 @@ public class ArrayMethods{
             
         return newArray;
     }
+
+    public static void replaceNegative(int[][] vals){ 
+        for (int i = 0; i < vals.length; i++){
+            for (int index = 0; index < vals[i].length; index++){
+                if (vals[i][index] < 0){
+                    if (i == index){
+                        vals[i][index] = 1;
+                    }else{
+                        vals[i][index] = 0;
+                    }
+                }
+            }        
+        }
+    }
+
+
 }
