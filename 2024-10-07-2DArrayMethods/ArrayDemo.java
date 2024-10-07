@@ -5,6 +5,11 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
+    //testing Arrays.toString
+    int[] arr = {2,3,4,5,6,7};
+    System.out.println(arrToString(arr).equals(Arrays.toString(arr)));
+    int[][] arr2 = {{2,3,0},{0,5,6},{8,0,4,1,1}};
+    System.out.println(countZeros2D(arr2));
 
   }
 
@@ -46,7 +51,19 @@ public class ArrayDemo{
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
-    return 0;
+    int count = 0;
+    for (int i = 0; i < nums.length; i++){
+      for (int index = 0; index < nums.length; index++){
+        if (nums[i][index] == 0){
+          count ++;
+
+        }
+
+      }
+
+    }
+
+    return count;
   }
 
   //2. Calculate the sum of a 2d array
