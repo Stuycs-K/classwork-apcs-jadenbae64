@@ -10,6 +10,7 @@ public class ArrayDemo{
     System.out.println(arrToString(arr).equals(Arrays.toString(arr)));
     int[][] arr2 = {{2,3,0},{0,5,6},{8,0,4,1,1}};
     System.out.println(countZeros2D(arr2));
+    System.out.println(arr2DSum(arr2));
 
   }
 
@@ -70,7 +71,16 @@ public class ArrayDemo{
   /*Return the sum of all of the values in the 2D array
    *Use a nested loop instead of a helper method*/
   public static int arr2DSum(int[][]nums){
-    return 0;
+    int count = 0;
+    for (int i = 0; i < nums.length; i++){
+      for (int index = 0; index < nums.length; index++){
+        count += nums[i][index];
+
+      }
+
+    }
+
+    return count;
   }
 
   //3. Modify a given 2D array of integer as follows:
