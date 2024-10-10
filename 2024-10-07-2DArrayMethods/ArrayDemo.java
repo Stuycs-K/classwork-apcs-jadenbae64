@@ -89,7 +89,17 @@ public class ArrayDemo{
   //that negative with the value 1
   //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals){
-
+    for (int i = 0; i < vals.length; i++){
+            for (int index = 0; index < vals[i].length; index++){
+                if (vals[i][index] < 0){
+                    if (i == index){
+                        vals[i][index] = 1;
+                    }else{
+                        vals[i][index] = 0;
+                    }
+                }
+            }        
+        }
   }
 
   //4. Make a copy of the given 2d array.
@@ -97,15 +107,38 @@ public class ArrayDemo{
   //DO NOT use any built in methods that "copy" an array.
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
+
+  public static int[] copyInnerArray(int[] nums){
+      int[] newArray = new int[nums.length];
+      for (int i = 0; i < nums.length; i++){
+          newArray[i] = nums[i];
+      }
+
+      return newArray;
+  }
+
   public static int[][] copy(int[][] nums){
-    return new int[1][1];
+    int[][] newArray = new int[nums.length][];
+    for (int i = 0; i < nums.length; i++){ 
+      newArray[i] = copyInnerArray(nums[i]);
+    }
+
+    return newArray;
   }
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
   //   You may assume the array is rectangular and neither rows nor cols is 0.
   //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
   public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+    int[][] newArray = new int[nums[0].length][nums.length];
+        for (int i = 0; i < nums.length; i++){
+            for (int index = 0; index < nums[i].length; index++){
+                newArray[index][i] = nums[i][index];
+            }
+        
+        }
+            
+        return newArray;
   }
 
   //6. Make an HTML table by putting a table tag around the entire 2d array,
