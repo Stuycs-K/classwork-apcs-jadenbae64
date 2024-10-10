@@ -11,7 +11,8 @@ public class ArrayDemo{
     int[][] arr2 = {{2,3,0},{0,5,6},{8,0,4,1,1}};
     System.out.println(countZeros2D(arr2));
     System.out.println(arr2DSum(arr2));
-
+    int[][] arr3 = {{1,2},{3}};
+    System.out.println(htmlTable(arr3));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -90,16 +91,16 @@ public class ArrayDemo{
   //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals){
     for (int i = 0; i < vals.length; i++){
-            for (int index = 0; index < vals[i].length; index++){
-                if (vals[i][index] < 0){
-                    if (i == index){
-                        vals[i][index] = 1;
-                    }else{
-                        vals[i][index] = 0;
-                    }
-                }
-            }        
-        }
+              for (int index = 0; index < vals[i].length; index++){
+                  if (vals[i][index] < 0){
+                      if (i == index){
+                          vals[i][index] = 1;
+                      }else{
+                          vals[i][index] = 0;
+                      }
+                  }
+              }        
+    }
   }
 
   //4. Make a copy of the given 2d array.
@@ -148,6 +149,19 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String htmlTag = "<table>";
+
+    for (int i = 0; i < nums.length; i++){
+      htmlTag = htmlTag + "<tr>";
+      for (int index = 0; index < nums[i].length; index++){
+        htmlTag = htmlTag + "<td>";
+        htmlTag = htmlTag + nums[i][index];
+        htmlTag = htmlTag + "</td>";
+      }        
+      htmlTag = htmlTag + "</tr>";
+    }
+
+
+    return htmlTag+"</table>";
   }
 }
