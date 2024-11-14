@@ -12,4 +12,15 @@ public class ArrayListPractice{
     }
     return ary;
   }
+
+  public static void replaceEmpty( ArrayList<String> original){
+    for (int i = 0; i < original.size(); i++){
+      if (original.get(i).equals("")){
+        original.set(i, "Empty");
+      }
+
+    }
+
+  }
+
 }
