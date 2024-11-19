@@ -1,40 +1,45 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
 
  public class Driver {
-   public static void main(String[] args) {
-     int direction = 1; //1 : y, 2 : x, 3: -y, 4: -x
-     int currentX = 0;
-     int currentY = 0;
+   public static int solve (String[] data){
+     int x = 0;
+     int y = 0;
+     int facing = 0;
 
-     Scanner sc1 = new Scanner("input.txt");
+     int [][] offset =  {{0,1},{1,0},{0,-1},{-1,0}};
 
-     while(sc2.hasNext(", ")) {
-       if (next() == "R"){
-         direction ++;
+     for (int i = 0; i < data.length; i++){
+       String dir = data[i].substring(0,1);
+       int dist = Integer.parseInt(data[i].substring(1));
+
+       if (dir.equals("L")){
+         facing = (facing + 4 - 1) % 4;
        }else{
-         direction --;
+         facing = (facing + 4 + 1) % 4;
        }
 
-       if (direction == 5){
-         direction = 1;
-       }else if(direction == 0){
-         direction = 4
-       }
-
-       if (direction == 1){
-         currentY += next();
-       }else if (direction == 2){
-         currentX += next();
-       }else if (direction == 3){
-         currentY -= next();
-       }else if (direction == 4){
-         currentX -= next();
-       }
-       
+       x = x + offset[facing][0] * dist;
+       y = y + offset[facing][1] * dist;
      }
-     System.out.println(cu);
-     System.out.println(TriangleTester.countTrianglesA("inputTri.txt"));
+     return (x);
+   }
+   public static String [] parse(String file){
+     try{
+       Scanner inf = new Scanner(file);
+       String line = inf.nextLine();
+       System.out.println((Arrays.toString(line.split(", "))));
+     }catch (Exception e){
+       System.exit(1);
+     }
+     return null;
+   }
+
+
+   public static void main(String[] args) {
+     System.out.println(parse("input.txt"));
    }
  }
