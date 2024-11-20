@@ -29,7 +29,7 @@ import java.util.Arrays;
      System.out.println(x);
      System.out.println(y);
 
-     return (x);
+     return (Math.abs(x) + Math.abs(y));
    }
    public static String [] parse(String file){
      try{
