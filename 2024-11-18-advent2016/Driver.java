@@ -25,13 +25,19 @@ import java.util.Arrays;
        x = x + offset[facing][0] * dist;
        y = y + offset[facing][1] * dist;
      }
+
+     System.out.println(x);
+     System.out.println(y);
+
      return (x);
    }
    public static String [] parse(String file){
      try{
-       Scanner inf = new Scanner(file);
+       Scanner inf = new Scanner(new File(file));
        String line = inf.nextLine();
        System.out.println((Arrays.toString(line.split(", "))));
+       return (line.split(", "));
+       
      }catch (Exception e){
        System.exit(1);
      }
@@ -40,6 +46,6 @@ import java.util.Arrays;
 
 
    public static void main(String[] args) {
-     System.out.println(parse("input.txt"));
+     System.out.println(solve(parse("input.txt")));
    }
  }
