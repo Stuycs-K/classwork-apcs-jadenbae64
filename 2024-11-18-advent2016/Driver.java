@@ -52,6 +52,7 @@ import java.util.Arrays;
  }
 */
 
+/* Day 3 Part 1
  public class Driver {
    public static int parse(String file){
      
@@ -87,4 +88,53 @@ import java.util.Arrays;
      System.out.println(parse("input.txt"));
    }
  }
+*/
 
+// Day 3 Part 2
+ public class Driver {
+   public static int parse(String file){
+     int total = 0;
+     
+     try{
+      ArrayList<Integer> data = new ArrayList<Integer>();
+
+       Scanner inf = new Scanner(new File(file));
+       while(inf.hasNextLine()) {
+        data.add(inf.nextInt());
+        data.add(inf.nextInt());
+        data.add(inf.nextInt());
+        inf.nextLine();
+       }
+       inf.close();
+       
+       System.out.println(data.size());
+       for (int i = 0; i < data.size() - 6; i++){
+        int s1 = data.get(i);
+        int s2 = data.get(i+3);
+        int s3 = data.get(i+6);
+        if (
+          ((s1 + s2) > s3) &&
+          ((s2 + s3) > s1) &&
+          ((s3 + s1) > s2)
+        ) {
+          System.out.println(total);
+          System.out.println(s1);
+          System.out.println(s2);
+          System.out.println(s3);
+          total ++;
+        }
+
+       }
+
+
+     }catch (Exception e){
+       System.exit(1);
+     }
+     return total;
+   }
+
+
+   public static void main(String[] args) {
+     System.out.println(parse("input.txt"));
+   }
+ }
