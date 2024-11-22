@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 
+/*
  public class Driver {
    public static int solve (String[] data){
      int x = 0;
@@ -49,3 +50,41 @@ import java.util.Arrays;
      System.out.println(solve(parse("input.txt")));
    }
  }
+*/
+
+ public class Driver {
+   public static int parse(String file){
+     
+     int total = 0;
+     try{
+       Scanner inf = new Scanner(new File(file));
+       while(inf.hasNext()) {
+        int s1 = inf.nextInt();
+        int s2 = inf.nextInt();
+        int s3 = inf.nextInt();
+        if (
+          ((s1 + s2) > s3) &&
+          ((s2 + s3) > s1) &&
+          ((s3 + s1) > s2)
+        ) {
+          System.out.println(total);
+          System.out.println(s1);
+          System.out.println(s2);
+          System.out.println(s3);
+          total ++;
+        }
+        inf.nextLine();
+       }
+     }catch (Exception e){
+       System.exit(1);
+     }
+     System.out.println(total);
+     return total;
+   }
+
+
+   public static void main(String[] args) {
+     System.out.println(parse("input.txt"));
+   }
+ }
+
