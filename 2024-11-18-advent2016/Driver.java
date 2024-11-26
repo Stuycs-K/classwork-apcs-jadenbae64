@@ -216,7 +216,7 @@ public class Driver {
  }
 */
 
-// Day 6 part 1
+/* Day 6 part 1
 public class Driver {
    public static String parse(String file){
      
@@ -252,6 +252,62 @@ public class Driver {
           }
 
           total += maxLetter;
+        }
+
+     }catch (Exception e){
+       System.exit(1);
+     }
+
+     return total;
+   }
+
+
+   public static void main(String[] args) {
+     System.out.println(parse("input.txt"));
+   }
+ }
+*/
+
+ // Day 6 part 2
+public class Driver {
+   public static String parse(String file){
+     
+     String total = "";
+     try{
+       Scanner inf = new Scanner(new File(file));
+
+       String[] stringTable = {"","","","","","","",""};
+
+       while(inf.hasNext()) {
+        
+        String line = inf.next();
+        for (int i = 0; i < 8; i ++){
+          stringTable[i] += line.charAt(i);
+        }
+        
+        inf.nextLine();
+       }
+      
+       for (int i = 0; i < 8; i ++){
+          int min = 999;
+          int minchar = 0;
+
+          int[] tally = new int[128];
+          for (int index = 0; index < stringTable[i].length(); index++){
+            char letter = stringTable[i].charAt(index);
+
+            tally[(int) letter]++ ;
+          }
+
+          for (int index = 0; index < 128; index++){
+            
+            if (tally[index] < min && tally[index] != 0){
+              minchar = index;
+              min = tally[index];
+            }
+          }
+          total += Character.toString(minchar);
+
         }
 
      }catch (Exception e){
