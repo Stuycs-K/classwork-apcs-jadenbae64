@@ -150,7 +150,7 @@ public class Driver {
 
 */
 
-// Day 2 Part 1
+/* Day 2 Part 1
 public class Driver {
    public static String parse(String file){
      String answer = "";
@@ -207,6 +207,44 @@ public class Driver {
        System.exit(1);
      }
      return answer;
+   }
+
+
+   public static void main(String[] args) {
+     System.out.println(parse("input.txt"));
+   }
+ }
+*/
+
+// Day 6 part 1
+public class Driver {
+   public static String parse(String file){
+     
+     int total = 0;
+     try{
+       Scanner inf = new Scanner(new File(file));
+
+       String[] stringTable = {"","","","","","","",""};
+
+       while(inf.hasNext()) {
+        
+        String line = inf.next();
+        for (int i = 0; i < 8; i ++){
+          stringTable[i] += line.charAt(i);
+        }
+        
+        inf.nextLine();
+       }
+
+       for (int i = 0; i < 8; i ++){
+          System.out.println(stringTable[i]);
+        }
+
+     }catch (Exception e){
+       System.exit(1);
+     }
+
+     return "e";
    }
 
 
