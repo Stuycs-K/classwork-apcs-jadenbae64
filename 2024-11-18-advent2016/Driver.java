@@ -90,8 +90,8 @@ import java.util.Arrays;
  }
 */
 
-// Day 3 Part 2
- public class Driver {
+/* Day 3 Part 2
+public class Driver {
    public static int parse(String file){
      int total = 0;
      
@@ -140,6 +140,73 @@ import java.util.Arrays;
        System.exit(1);
      }
      return total;
+   }
+
+
+   public static void main(String[] args) {
+     System.out.println(parse("input.txt"));
+   }
+ }
+
+*/
+
+// Day 2 Part 1
+public class Driver {
+   public static String parse(String file){
+     String answer = "";
+
+     try{
+       Scanner inf = new Scanner(new File(file));
+       
+       while(inf.hasNextLine()) {
+        int pos = 5;
+
+        System.out.println(pos);
+            
+        String directions = inf.next();
+        
+        for (int i = 0; i <directions.length(); i++){
+          char direction = directions.charAt(i);
+
+          if (direction == 'L'){
+            if (pos != 1 && pos != 4 && pos != 7){
+              pos --;
+            } 
+
+          }else if (direction == 'R'){
+            if (pos != 3 && pos != 6 && pos != 9){
+              pos ++;
+            } 
+
+
+          }else if (direction == 'D'){
+            if (pos != 7 && pos != 8 && pos != 9){
+              pos += 3;
+            } 
+
+
+          }else if (direction == 'U'){
+            if (pos != 1 && pos != 2 && pos != 3){
+              pos -= 3;
+            } 
+          }
+
+
+        }
+
+        
+
+        System.out.println(pos);
+        answer += pos;
+        inf.nextLine();
+       }
+
+
+
+     }catch (Exception e){
+       System.exit(1);
+     }
+     return answer;
    }
 
 
