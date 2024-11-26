@@ -220,7 +220,7 @@ public class Driver {
 public class Driver {
    public static String parse(String file){
      
-     int total = 0;
+     String total = "";
      try{
        Scanner inf = new Scanner(new File(file));
 
@@ -235,16 +235,30 @@ public class Driver {
         
         inf.nextLine();
        }
-
+      
        for (int i = 0; i < 8; i ++){
-          System.out.println(stringTable[i]);
+          int[] tally = new int[128];
+          char maxLetter = 'a';
+          int maxValue = 0;
+          for (int index = 0; index < stringTable[i].length(); index++){
+            char letter = stringTable[i].charAt(index);
+
+            tally[(int) letter]++ ;
+            if (tally[(int) letter] > maxValue){
+              maxValue = tally[(int) letter];
+              maxLetter = letter;
+
+            }
+          }
+
+          total += maxLetter;
         }
 
      }catch (Exception e){
        System.exit(1);
      }
 
-     return "e";
+     return total;
    }
 
 
