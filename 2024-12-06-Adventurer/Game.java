@@ -6,6 +6,8 @@ public class Game{
 
       if (p1.getHP() > p2.getHP()){
         System.out.println(p1.getName()+" has won over "+p2.getName()+"!");
+      }else{
+        System.out.println(p2.getName()+" has won over "+p1.getName()+"!");
       }
       return true;
     }
