@@ -1,7 +1,18 @@
 import java.util.Scanner;
 
 public class Game{
-  public static void main(String[]args){
+  public static boolean checkHealth(Adventurer p1, Adventurer p2){
+    if (p1.getHP() <= 0 || p2.getHP() <= 0){
+
+      if (p1.getHP() > p2.getHP()){
+        System.out.println(p1.getName()+" has won over "+p2.getName()+"!");
+      }
+      return true;
+    }
+    return false;
+
+  }
+  public static void main(String[]args){    
     CodeWarrior codeWarrior1 = new CodeWarrior();
     Adventurer adventurer1 = new Warrior("Beowulf");
 
@@ -15,12 +26,12 @@ public class Game{
       String nextMove = userInput.nextLine();
 
       if (nextMove.equals("a")) {
-
+        System.out.println(adventurer1.attack(codeWarrior1));
       }else if (nextMove.equals("sp")){
-
+        System.out.println(adventurer1.specialAttack(codeWarrior1));
 
       }else if (nextMove.equals("su")){
-
+        System.out.println(adventurer1.support(adventurer1));
 
       }else if (nextMove.equals("quit")){
         break;
@@ -29,13 +40,23 @@ public class Game{
         System.out.println("Please type valid response!");
       }
 
-
-
-
-      if (codeWarrior1.getHP() <= 0 || adventurer1.getHP() <= 0){
-
+      if (checkHealth(codeWarrior1, adventurer1)){
         break;
       }
+
+      int action = (int) Math.random() * 3;
+      if (action == 0){
+        System.out.println(codeWarrior1.attack(adventurer1));
+      }else if (action == 1){
+        System.out.println(codeWarrior1.specialAttack(adventurer1));
+      }else{
+        System.out.println(codeWarrior1.support(codeWarrior1));
+      }
+
+      if (checkHealth(codeWarrior1, adventurer1)){
+        break;
+      }
+
     }
 
 
