@@ -37,7 +37,7 @@ import java.util.Arrays;
        String line = inf.nextLine();
        System.out.println((Arrays.toString(line.split(", "))));
        return (line.split(", "));
-       
+
      }catch (Exception e){
        System.exit(1);
      }
